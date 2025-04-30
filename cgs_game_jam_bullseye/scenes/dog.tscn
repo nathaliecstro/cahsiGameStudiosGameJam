@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://cbbdyqld8tqd1"]
+[gd_scene load_steps=29 format=3 uid="uid://cbbdyqld8tqd1"]
 
+[ext_resource type="Script" uid="uid://27kcwk3pskrk" path="res://scenes/dog.gd" id="1_ei5el"]
 [ext_resource type="Texture2D" uid="uid://4bspwnfmjoo2" path="res://assets/CGS GJ Art/sprites/Idle.png" id="1_ngebd"]
 [ext_resource type="Texture2D" uid="uid://dhpg72txh6dv7" path="res://assets/CGS GJ Art/sprites/Walk.png" id="2_jurjn"]
 [ext_resource type="Texture2D" uid="uid://dlfpdiblkwybg" path="res://assets/CGS GJ Art/sprites/Death.png" id="3_6vfhn"]
@@ -117,7 +118,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qbp2"]
-size = Vector2(26.2126, 8.95732)
+size = Vector2(105, 77.4787)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8of7"]
 atlas = ExtResource("6_ei5el")
@@ -161,18 +162,20 @@ animations = [{
 }]
 
 [node name="dog" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_ei5el")
 
 [node name="dogAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(12, 6)
 scale = Vector2(4, 3.855)
 sprite_frames = SubResource("SpriteFrames_rdt2k")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
 centered = false
 
 [node name="runCol" type="CollisionShape2D" parent="."]
-position = Vector2(-4.10631, 9.52134)
+position = Vector2(86.5, 152.261)
 shape = SubResource("RectangleShape2D_7qbp2")
 
 [node name="jumpSound" type="AudioStreamPlayer" parent="."]
@@ -185,6 +188,7 @@ volume_db = -20.0
 
 [node name="darkMessages" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-2.99994, -3)
 scale = Vector2(1.48665, 1.45833)
 sprite_frames = SubResource("SpriteFrames_fvvtv")
 animation = &"stupid_dog"
