@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://31ofiiv51bh8"]
+
+[ext_resource type="Texture2D" uid="uid://cahlr7kniuvpg" path="res://assets/CGS GJ Art/parallax_japan/Sky.png" id="1_xjofa"]
+[ext_resource type="Texture2D" uid="uid://crgse4l8oqc3u" path="res://assets/CGS GJ Art/parallax_japan/Mountain_Back.png" id="2_keo2w"]
+[ext_resource type="Texture2D" uid="uid://b5fad7vqmhh8b" path="res://assets/CGS GJ Art/parallax_japan/Clouds.png" id="3_xuygc"]
+[ext_resource type="Texture2D" uid="uid://bxxmvoxjx61ox" path="res://assets/CGS GJ Art/parallax_japan/Mountain_Middle.png" id="4_oa2qp"]
+[ext_resource type="Texture2D" uid="uid://gmujg2puydqf" path="res://assets/CGS GJ Art/parallax_japan/Mountain_Front.png" id="5_qtbhw"]
+[ext_resource type="Texture2D" uid="uid://b5vtdow77xb50" path="res://assets/CGS GJ Art/parallax_japan/BackgroundTrees.png" id="6_qp3h1"]
+[ext_resource type="Texture2D" uid="uid://02lsbtsarrcy" path="res://assets/CGS GJ Art/parallax_japan/Trees.png" id="7_ive51"]
+
+[node name="CuteBG" type="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("1_xjofa")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("2_keo2w")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("3_xuygc")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("2_keo2w")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("4_oa2qp")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("5_qtbhw")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("6_qp3h1")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer7"]
+texture_filter = 1
+scale = Vector2(2.8272, 3.32778)
+texture = ExtResource("7_ive51")
+centered = false
