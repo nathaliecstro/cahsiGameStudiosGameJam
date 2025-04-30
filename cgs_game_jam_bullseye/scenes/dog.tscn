@@ -1,9 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://cbbdyqld8tqd1"]
+[gd_scene load_steps=28 format=3 uid="uid://cbbdyqld8tqd1"]
 
 [ext_resource type="Texture2D" uid="uid://4bspwnfmjoo2" path="res://assets/CGS GJ Art/sprites/Idle.png" id="1_ngebd"]
 [ext_resource type="Texture2D" uid="uid://dhpg72txh6dv7" path="res://assets/CGS GJ Art/sprites/Walk.png" id="2_jurjn"]
 [ext_resource type="Texture2D" uid="uid://dlfpdiblkwybg" path="res://assets/CGS GJ Art/sprites/Death.png" id="3_6vfhn"]
-[ext_resource type="AudioStream" uid="uid://ciegsgnjds5nl" path="res://assets/music/Dog sound effect woof.wav" id="4_pq3vt"]
+[ext_resource type="AudioStream" uid="uid://c2w4jakhm7bfl" path="res://assets/music/dog barking jump.wav" id="4_laypt"]
+[ext_resource type="AudioStream" uid="uid://bqswsqyouiepa" path="res://assets/music/jumpScare.wav" id="5_laypt"]
+[ext_resource type="Texture2D" uid="uid://bpingf0lmewe1" path="res://assets/CGS GJ Art/dark messages/dark_message_2.png" id="6_ei5el"]
+[ext_resource type="Texture2D" uid="uid://c4p8i3vxggnm3" path="res://assets/CGS GJ Art/dark messages/flashing_animation.png" id="7_jlmqp"]
+[ext_resource type="Texture2D" uid="uid://433f2y6ia6qr" path="res://assets/CGS GJ Art/dark messages/dark_message_1.png" id="8_v3i3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ad4jp"]
 atlas = ExtResource("1_ngebd")
@@ -115,19 +119,75 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qbp2"]
 size = Vector2(26.2126, 8.95732)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8of7"]
+atlas = ExtResource("6_ei5el")
+region = Rect2(0, 0, 674, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ke0b"]
+atlas = ExtResource("7_jlmqp")
+region = Rect2(0, 0, 687, 427)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btgii"]
+atlas = ExtResource("8_v3i3p")
+region = Rect2(0, 0, 687, 427)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydcs6"]
+atlas = ExtResource("7_jlmqp")
+region = Rect2(0, 0, 687, 427)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvvtv"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_x8of7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ke0b")
+}],
+"loop": true,
+"name": &"stupid_dog",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_btgii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydcs6")
+}],
+"loop": true,
+"name": &"your_fault",
+"speed": 5.0
+}]
+
 [node name="dog" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="dogAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(12, 6)
+scale = Vector2(4, 3.855)
 sprite_frames = SubResource("SpriteFrames_rdt2k")
 animation = &"idle"
 autoplay = "idle"
+centered = false
 
 [node name="runCol" type="CollisionShape2D" parent="."]
 position = Vector2(-4.10631, 9.52134)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7qbp2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_pq3vt")
+[node name="jumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_laypt")
 volume_db = -25.0
+
+[node name="jumpscareSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_laypt")
+volume_db = -20.0
+
+[node name="darkMessages" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.48665, 1.45833)
+sprite_frames = SubResource("SpriteFrames_fvvtv")
+animation = &"stupid_dog"
+frame = 1
+frame_progress = 0.391037
+centered = false
