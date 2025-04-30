@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ciegsgnjds5nl"
+path="res://.godot/imported/Dog sound effect woof.wav-bde67e99d48e57562a8936e804bcd31b.sample"
+
+[deps]
+
+source_file="res://assets/music/Dog sound effect woof.wav"
+dest_files=["res://.godot/imported/Dog sound effect woof.wav-bde67e99d48e57562a8936e804bcd31b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
