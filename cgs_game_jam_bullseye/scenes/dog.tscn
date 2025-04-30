@@ -161,7 +161,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="dog" type="CharacterBody2D"]
+[node name="dog" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 script = ExtResource("1_ei5el")
 

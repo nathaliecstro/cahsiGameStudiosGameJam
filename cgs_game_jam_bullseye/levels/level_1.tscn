@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpk4154t2lh5c"]
+
+[ext_resource type="PackedScene" uid="uid://31ofiiv51bh8" path="res://scenes/cute_bg.tscn" id="1_n46q3"]
+[ext_resource type="PackedScene" uid="uid://e7f4dtnbuolu" path="res://scenes/ground.tscn" id="2_btoec"]
+[ext_resource type="PackedScene" uid="uid://cbbdyqld8tqd1" path="res://scenes/dog.tscn" id="3_gwceb"]
+[ext_resource type="Script" uid="uid://c5humrw1dawa" path="res://scenes/camera_2d.gd" id="4_l53as"]
+[ext_resource type="Script" uid="uid://ds1hk406yelbu" path="res://scenes/next_level.gd" id="5_3sk1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ygg"]
+size = Vector2(336, 65)
+
+[node name="CuteLevel_Main" type="Node"]
+
+[node name="CuteBG" parent="." instance=ExtResource("1_n46q3")]
+
+[node name="ground" parent="." instance=ExtResource("2_btoec")]
+
+[node name="dog" parent="." instance=ExtResource("3_gwceb")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(499, 299)
+script = ExtResource("4_l53as")
+target = NodePath("../dog")
+
+[node name="Next_Level" type="Area2D" parent="."]
+script = ExtResource("5_3sk1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Level"]
+position = Vector2(2747, 634.5)
+shape = SubResource("RectangleShape2D_y5ygg")
+
+[connection signal="body_entered" from="Next_Level" to="Next_Level" method="_on_body_entered"]
