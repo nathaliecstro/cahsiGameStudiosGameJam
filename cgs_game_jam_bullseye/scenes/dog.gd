@@ -12,12 +12,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
+	var current_scene_file = get_tree().current_scene.scene_file_path
+	var level_number = current_scene_file.to_int()
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		$dogAnim.play("jump")
 		velocity.y = JUMP_VELOCITY
-		
-		var current_scene_file = get_tree().current_scene.scene_file_path
-		var level_number = current_scene_file.to_int()
 		if level_number == 1:
 			$jumpSound.play()
 		

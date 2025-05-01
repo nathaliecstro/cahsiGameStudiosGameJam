@@ -113,6 +113,7 @@ texture = ExtResource("7_l53as")
 
 [node name="cuteBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5ot28")
+volume_db = -15.011
 
 [connection signal="body_entered" from="Next_Level" to="Next_Level" method="_on_body_entered"]
 [connection signal="body_entered" from="bone1" to="bone1" method="_on_body_entered"]

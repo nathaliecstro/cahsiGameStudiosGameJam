@@ -5,6 +5,7 @@ var darkmessages = ["your_fault","stupid_dog"]
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		$Sprite2D.hide()
+		Global.add_score(1)
 		
 		var anim = darkmessages[randi() % darkmessages.size()]
 		darkmessages.erase(anim)

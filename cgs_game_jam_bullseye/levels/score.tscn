@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvwogkcg3nga"]
+
+[ext_resource type="FontFile" uid="uid://dw7esx3n6k17b" path="res://assets/CGS GJ Art/GUI/m6x11.ttf" id="1_3gup8"]
+[ext_resource type="Script" uid="uid://c08gstrbk4gh2" path="res://scenes/score.gd" id="1_3i6cr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3gup8"]
+font = ExtResource("1_3gup8")
+
+[node name="Score" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="score" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 955.0
+offset_top = 11.0
+offset_right = -32.0
+offset_bottom = -575.0
+scale = Vector2(3, 3)
+label_settings = SubResource("LabelSettings_3gup8")
+script = ExtResource("1_3i6cr")

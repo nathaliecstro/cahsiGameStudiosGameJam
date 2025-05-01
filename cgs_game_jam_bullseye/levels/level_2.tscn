@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://crk734ynbflwy"]
+[gd_scene load_steps=30 format=3 uid="uid://crk734ynbflwy"]
 
 [ext_resource type="PackedScene" uid="uid://tecs0kk6f5g0" path="res://scenes/dark_bg.tscn" id="1_5722l"]
 [ext_resource type="Script" uid="uid://xeimt03bosee" path="res://levels/level_2.gd" id="1_k2aru"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c4p8i3vxggnm3" path="res://assets/CGS GJ Art/dark messages/flashing_animation.png" id="12_5orea"]
 [ext_resource type="Texture2D" uid="uid://433f2y6ia6qr" path="res://assets/CGS GJ Art/dark messages/dark_message_1.png" id="13_0ourt"]
 [ext_resource type="AudioStream" uid="uid://bqswsqyouiepa" path="res://assets/music/jumpScare.wav" id="14_5orea"]
+[ext_resource type="Script" uid="uid://dt86akg3a7oc2" path="res://levels/skull.gd" id="16_ndgrd"]
 [ext_resource type="AudioStream" uid="uid://xjykg4jko4ee" path="res://assets/music/dark level bg music.wav" id="18_ndgrd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxcyt"]
@@ -229,6 +230,7 @@ frame_progress = 0.434703
 centered = false
 
 [node name="skull" type="Area2D" parent="."]
+script = ExtResource("16_ndgrd")
 
 [node name="Sprite2D" type="Sprite2D" parent="skull"]
 texture_filter = 1
@@ -253,3 +255,4 @@ stream = ExtResource("18_ndgrd")
 [connection signal="body_entered" from="bone5" to="bone5" method="_on_body_entered"]
 [connection signal="body_entered" from="ribs" to="ribs" method="_on_body_entered"]
 [connection signal="body_entered" from="ribs2" to="ribs2" method="_on_body_entered"]
+[connection signal="body_entered" from="skull" to="skull" method="_on_body_entered"]

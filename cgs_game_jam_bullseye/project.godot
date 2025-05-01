@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="CGS_game_jam_bullseye"
+run/main_scene="uid://dpk4154t2lh5c"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [display]
 
@@ -32,7 +37,3 @@ jump={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
-
-[rendering]
-
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)

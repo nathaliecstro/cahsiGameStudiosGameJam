@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2gl44nv6s5f6"]
+
+[ext_resource type="PackedScene" uid="uid://dpk4154t2lh5c" path="res://levels/level_1.tscn" id="1_m1504"]
+[ext_resource type="PackedScene" uid="uid://crk734ynbflwy" path="res://levels/level_2.tscn" id="2_ifaiv"]
+[ext_resource type="PackedScene" uid="uid://cmv8hggp1nlcy" path="res://levels/text_scene.tscn" id="3_5k4jt"]
+[ext_resource type="PackedScene" uid="uid://b5g2n0lte1aoj" path="res://levels/final_scene.tscn" id="4_qy63d"]
+
+[node name="Main" type="Node"]
+
+[node name="CuteLevel_Main" parent="." instance=ExtResource("1_m1504")]
+
+[node name="DarkLevel_Main" parent="." instance=ExtResource("2_ifaiv")]
+
+[node name="text_scene" parent="." instance=ExtResource("3_5k4jt")]
+
+[node name="final_scene" parent="." instance=ExtResource("4_qy63d")]
