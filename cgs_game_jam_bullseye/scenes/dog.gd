@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 250.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
+
 
 
 func _physics_process(delta: float) -> void:
@@ -14,7 +15,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		$dogAnim.play("jump")
 		velocity.y = JUMP_VELOCITY
-		$jumpSound.play()
+		
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		var level_number = current_scene_file.to_int()
+		if level_number == 1:
+			$jumpSound.play()
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -33,3 +38,4 @@ func _physics_process(delta: float) -> void:
 				$dogAnim.play("jump")
 
 	move_and_slide()
+	
