@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://crk734ynbflwy"]
+[gd_scene load_steps=29 format=3 uid="uid://crk734ynbflwy"]
 
 [ext_resource type="PackedScene" uid="uid://tecs0kk6f5g0" path="res://scenes/dark_bg.tscn" id="1_5722l"]
+[ext_resource type="Script" uid="uid://xeimt03bosee" path="res://levels/level_2.gd" id="1_k2aru"]
 [ext_resource type="PackedScene" uid="uid://dgoadwhgxs0b8" path="res://scenes/dark_map.tscn" id="2_ilhis"]
 [ext_resource type="PackedScene" uid="uid://cbbdyqld8tqd1" path="res://scenes/dog.tscn" id="3_ep78u"]
 [ext_resource type="Script" uid="uid://c5humrw1dawa" path="res://scenes/camera_2d.gd" id="4_dfjjl"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c4p8i3vxggnm3" path="res://assets/CGS GJ Art/dark messages/flashing_animation.png" id="12_5orea"]
 [ext_resource type="Texture2D" uid="uid://433f2y6ia6qr" path="res://assets/CGS GJ Art/dark messages/dark_message_1.png" id="13_0ourt"]
 [ext_resource type="AudioStream" uid="uid://bqswsqyouiepa" path="res://assets/music/jumpScare.wav" id="14_5orea"]
+[ext_resource type="AudioStream" uid="uid://xjykg4jko4ee" path="res://assets/music/dark level bg music.wav" id="18_ndgrd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxcyt"]
 shader = ExtResource("5_at1ld")
@@ -95,6 +97,7 @@ animations = [{
 size = Vector2(55, 56)
 
 [node name="DarkLevel_Main" type="Node"]
+script = ExtResource("1_k2aru")
 
 [node name="dark_bg" parent="." instance=ExtResource("1_5722l")]
 
@@ -102,7 +105,7 @@ size = Vector2(55, 56)
 position = Vector2(-1, 65)
 
 [node name="DarkMap2" parent="." instance=ExtResource("2_ilhis")]
-position = Vector2(3198, 64)
+position = Vector2(3194, 67)
 
 [node name="dog" parent="." instance=ExtResource("3_ep78u")]
 
@@ -207,12 +210,12 @@ script = ExtResource("9_wcjpl")
 
 [node name="Sprite2D" type="Sprite2D" parent="ribs2"]
 texture_filter = 1
-position = Vector2(3305, 558)
+position = Vector2(3361, 559)
 scale = Vector2(0.859551, 0.771429)
 texture = ExtResource("8_vm7no")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ribs2"]
-position = Vector2(3305, 558)
+position = Vector2(3362, 559)
 shape = SubResource("RectangleShape2D_0ourt")
 
 [node name="darkMessages" type="AnimatedSprite2D" parent="ribs2"]
@@ -238,7 +241,10 @@ shape = SubResource("RectangleShape2D_w200a")
 
 [node name="jumpscareSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_5orea")
-volume_db = -20.0
+volume_db = -10.0
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ndgrd")
 
 [connection signal="body_entered" from="bone1" to="bone1" method="_on_body_entered"]
 [connection signal="body_entered" from="bone2" to="bone2" method="_on_body_entered"]

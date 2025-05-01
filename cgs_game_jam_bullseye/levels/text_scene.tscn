@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmv8hggp1nlcy"]
+
+[ext_resource type="FontFile" uid="uid://dw7esx3n6k17b" path="res://assets/CGS GJ Art/GUI/m6x11.ttf" id="1_dnf7l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qlqyy"]
+font = ExtResource("1_dnf7l")
+
+[sub_resource type="Animation" id="Animation_dnf7l"]
+resource_name = "typewriter"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qlqyy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m44yd"]
+_data = {
+&"RESET": SubResource("Animation_qlqyy"),
+&"typewriter": SubResource("Animation_dnf7l")
+}
+
+[node name="text_scene" type="Node2D"]
+
+[node name="text" type="Label" parent="."]
+offset_left = 185.0
+offset_top = 300.0
+offset_right = 505.0
+offset_bottom = 322.0
+scale = Vector2(2, 2)
+text = "Don't worry buddy, everything's going to be okay."
+label_settings = SubResource("LabelSettings_qlqyy")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_m44yd")
+}
+autoplay = "typewriter"

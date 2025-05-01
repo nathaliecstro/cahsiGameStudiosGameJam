@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5tuser6y4epq"
+path="res://.godot/imported/cute level bg music - Made with Clipchamp.wav-22d7cdd501187d9729c09a5832f863bb.sample"
+
+[deps]
+
+source_file="res://assets/music/cute level bg music - Made with Clipchamp.wav"
+dest_files=["res://.godot/imported/cute level bg music - Made with Clipchamp.wav-22d7cdd501187d9729c09a5832f863bb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

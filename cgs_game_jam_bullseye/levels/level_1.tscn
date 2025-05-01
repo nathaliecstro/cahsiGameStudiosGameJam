@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpk4154t2lh5c"]
+[gd_scene load_steps=13 format=3 uid="uid://dpk4154t2lh5c"]
 
+[ext_resource type="Script" uid="uid://b73nr1lpbhbs8" path="res://levels/level_1.gd" id="1_08mmt"]
 [ext_resource type="PackedScene" uid="uid://31ofiiv51bh8" path="res://scenes/cute_bg.tscn" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://e7f4dtnbuolu" path="res://scenes/ground.tscn" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://cbbdyqld8tqd1" path="res://scenes/dog.tscn" id="3_gwceb"]
@@ -8,14 +9,16 @@
 [ext_resource type="Script" uid="uid://cxd7c45l53yii" path="res://levels/bones.gd" id="6_gwceb"]
 [ext_resource type="Texture2D" uid="uid://bomo76os67q6n" path="res://assets/CGS GJ Art/Bones/cute_bone_1.png" id="7_l53as"]
 [ext_resource type="Texture2D" uid="uid://dpep50g6bdlx1" path="res://assets/CGS GJ Art/Bones/cute_bone_2.png" id="8_l53as"]
+[ext_resource type="AudioStream" uid="uid://c5tuser6y4epq" path="res://assets/music/cute level bg music - Made with Clipchamp.wav" id="10_5ot28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ygg"]
-size = Vector2(336, 65)
+size = Vector2(859, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sk1a"]
 size = Vector2(98, 13)
 
 [node name="CuteLevel_Main" type="Node"]
+script = ExtResource("1_08mmt")
 
 [node name="CuteBG" parent="." instance=ExtResource("1_n46q3")]
 
@@ -32,7 +35,7 @@ target = NodePath("../dog")
 script = ExtResource("5_3sk1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Level"]
-position = Vector2(2747, 634.5)
+position = Vector2(2738, 882)
 shape = SubResource("RectangleShape2D_y5ygg")
 
 [node name="bone1" type="Area2D" parent="."]
@@ -107,6 +110,9 @@ texture_filter = 1
 position = Vector2(3011, 506)
 scale = Vector2(1.2, 1.17627)
 texture = ExtResource("7_l53as")
+
+[node name="cuteBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5ot28")
 
 [connection signal="body_entered" from="Next_Level" to="Next_Level" method="_on_body_entered"]
 [connection signal="body_entered" from="bone1" to="bone1" method="_on_body_entered"]
