@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CGS_game_jam_bullseye"
-run/main_scene="uid://dpk4154t2lh5c"
+run/main_scene="uid://c77vkh3ynjrlp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
