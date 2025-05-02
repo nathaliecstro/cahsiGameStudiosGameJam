@@ -12,7 +12,7 @@ font = ExtResource("1_3gup8")
 
 [node name="score" type="Label" parent="CanvasLayer"]
 texture_filter = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 955.0

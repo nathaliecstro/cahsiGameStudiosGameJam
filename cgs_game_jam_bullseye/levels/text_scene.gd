@@ -10,7 +10,3 @@ func _ready():
 	
 	var next_level_path = FILE_BEGIN + "final_scene.tscn"
 	get_tree().change_scene_to_file(next_level_path)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
