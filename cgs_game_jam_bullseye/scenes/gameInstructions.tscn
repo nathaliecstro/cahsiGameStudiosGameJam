@@ -1,0 +1,221 @@
+[gd_scene load_steps=21 format=3 uid="uid://c54yos7w5xb30"]
+
+[ext_resource type="Script" uid="uid://tjln0k8e4mdq" path="res://scenes/game_instructions.gd" id="1_gbu6k"]
+[ext_resource type="Texture2D" uid="uid://cwtbtvuxtry2a" path="res://assets/CGS GJ Art/GUI/main_menu_SS.png" id="2_gt36d"]
+[ext_resource type="Texture2D" uid="uid://c32an8swm1srk" path="res://assets/CGS GJ Art/GUI/Game instrucciones.png" id="3_rnjpp"]
+[ext_resource type="FontFile" uid="uid://dw7esx3n6k17b" path="res://assets/CGS GJ Art/GUI/m6x11.ttf" id="4_etith"]
+[ext_resource type="Texture2D" uid="uid://b2qoy7lkl2kud" path="res://assets/CGS GJ Art/GUI/movementUNPRESSED.png" id="5_jqbxu"]
+[ext_resource type="Texture2D" uid="uid://6ao8nghvjf47" path="res://assets/CGS GJ Art/GUI/movementPRESSED.png" id="6_oovl8"]
+[ext_resource type="Texture2D" uid="uid://t2x4h68bcet0" path="res://assets/CGS GJ Art/GUI/spaceUNPRESSED.png" id="7_dxo6g"]
+[ext_resource type="Texture2D" uid="uid://by6dl21thr5je" path="res://assets/CGS GJ Art/GUI/spacePRESSED.png" id="8_p7rky"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_34qtw"]
+texture = ExtResource("2_gt36d")
+modulate_color = Color(0.637843, 0.637843, 0.637843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k1pwk"]
+texture = ExtResource("3_rnjpp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k1pwk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ji3hb"]
+bg_color = Color(0.466218, 0.466167, 0.466176, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tw5k1"]
+bg_color = Color(0.466667, 0.466667, 0.466667, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwgpp"]
+bg_color = Color(0.969141, 0.969135, 0.969137, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk0ib"]
+atlas = ExtResource("5_jqbxu")
+region = Rect2(0, 0, 49, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbcty"]
+atlas = ExtResource("6_oovl8")
+region = Rect2(0, 0, 49, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ossx7"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_dk0ib")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_xbcty")
+}],
+"loop": true,
+"name": &"movement",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ipj"]
+atlas = ExtResource("7_dxo6g")
+region = Rect2(0, 0, 32, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hic0"]
+atlas = ExtResource("8_p7rky")
+region = Rect2(0, 0, 32, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6xui"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_n1ipj")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_2hic0")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}]
+
+[node name="GameInstructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gbu6k")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_34qtw")
+
+[node name="intructions" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -438.5
+offset_top = -284.0
+offset_right = 438.5
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_k1pwk")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.5
+offset_top = -136.0
+offset_right = 113.5
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_etith")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k1pwk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ji3hb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_tw5k1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wwgpp")
+text = "Continue"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -169.0
+offset_right = -37.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0.72293, 0.527862, 0.413925, 1)
+theme_override_fonts/font = ExtResource("4_etith")
+text = "HOW TO PLAY"
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -80.0
+offset_right = 72.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0.72293, 0.527862, 0.413925, 1)
+theme_override_fonts/font = ExtResource("4_etith")
+text = "Walk"
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 42.0
+offset_top = 7.0
+offset_right = 72.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0.72293, 0.527862, 0.413925, 1)
+theme_override_fonts/font = ExtResource("4_etith")
+text = "Jump"
+
+[node name="wasd" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(436, 234)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ossx7")
+animation = &"movement"
+frame_progress = 0.288447
+
+[node name="spaceBar" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(436, 331)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_q6xui")
+animation = &"jumping"
+frame = 1
+frame_progress = 0.886632
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

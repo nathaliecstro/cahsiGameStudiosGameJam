@@ -45,7 +45,7 @@ shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.78
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcjpl"]
-size = Vector2(62, 11.5)
+size = Vector2(62, 9.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5orea"]
 size = Vector2(81, 10)
@@ -216,7 +216,7 @@ scale = Vector2(0.859551, 0.771429)
 texture = ExtResource("8_vm7no")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ribs2"]
-position = Vector2(3362, 559)
+position = Vector2(3363, 558)
 shape = SubResource("RectangleShape2D_0ourt")
 
 [node name="darkMessages" type="AnimatedSprite2D" parent="ribs2"]

@@ -12,10 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://c5tuser6y4epq" path="res://assets/music/cute level bg music - Made with Clipchamp.wav" id="10_5ot28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ygg"]
-size = Vector2(859, 65)
+size = Vector2(1871, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sk1a"]
-size = Vector2(98, 13)
+size = Vector2(82, 13.5)
 
 [node name="CuteLevel_Main" type="Node"]
 script = ExtResource("1_08mmt")
@@ -35,7 +35,7 @@ target = NodePath("../dog")
 script = ExtResource("5_3sk1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Level"]
-position = Vector2(2738, 882)
+position = Vector2(3117.5, 882)
 shape = SubResource("RectangleShape2D_y5ygg")
 
 [node name="bone1" type="Area2D" parent="."]
@@ -48,7 +48,7 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("7_l53as")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bone1"]
-position = Vector2(469, 501)
+position = Vector2(472, 501)
 shape = SubResource("RectangleShape2D_3sk1a")
 
 [node name="bone2" type="Area2D" parent="."]
