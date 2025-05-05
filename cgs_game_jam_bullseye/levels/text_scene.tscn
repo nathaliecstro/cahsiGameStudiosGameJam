@@ -47,6 +47,7 @@ _data = {
 script = ExtResource("1_qlqyy")
 
 [node name="text" type="Label" parent="."]
+texture_filter = 1
 offset_left = 185.0
 offset_top = 300.0
 offset_right = 505.0

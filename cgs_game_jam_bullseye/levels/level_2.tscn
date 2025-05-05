@@ -1,13 +1,17 @@
-[gd_scene load_steps=30 format=3 uid="uid://crk734ynbflwy"]
+[gd_scene load_steps=37 format=3 uid="uid://crk734ynbflwy"]
 
 [ext_resource type="PackedScene" uid="uid://tecs0kk6f5g0" path="res://scenes/dark_bg.tscn" id="1_5722l"]
 [ext_resource type="Script" uid="uid://xeimt03bosee" path="res://levels/level_2.gd" id="1_k2aru"]
 [ext_resource type="PackedScene" uid="uid://dgoadwhgxs0b8" path="res://scenes/dark_map.tscn" id="2_ilhis"]
+[ext_resource type="FontFile" uid="uid://dw7esx3n6k17b" path="res://assets/CGS GJ Art/GUI/m6x11.ttf" id="3_dpc8t"]
 [ext_resource type="PackedScene" uid="uid://cbbdyqld8tqd1" path="res://scenes/dog.tscn" id="3_ep78u"]
 [ext_resource type="Script" uid="uid://c5humrw1dawa" path="res://scenes/camera_2d.gd" id="4_dfjjl"]
+[ext_resource type="Script" uid="uid://c08gstrbk4gh2" path="res://scenes/score.gd" id="4_ngvhw"]
 [ext_resource type="Shader" uid="uid://ldr7gt3n3v78" path="res://assets/shaders/vhsEffect.gdshader" id="5_at1ld"]
+[ext_resource type="Texture2D" uid="uid://diiejfyfh43qi" path="res://assets/CGS GJ Art/Bones/x for bone .png" id="5_itbe0"]
 [ext_resource type="Script" uid="uid://bsd4ov4rljgi3" path="res://levels/darkbone_1.gd" id="6_0ourt"]
 [ext_resource type="Texture2D" uid="uid://dy14dimkru4xf" path="res://assets/CGS GJ Art/Bones/dark_bone_1.png" id="6_at1ld"]
+[ext_resource type="Texture2D" uid="uid://bomo76os67q6n" path="res://assets/CGS GJ Art/Bones/cute_bone_1.png" id="6_xrja0"]
 [ext_resource type="Texture2D" uid="uid://dyq6sugxey3pp" path="res://assets/CGS GJ Art/Bones/dark_bone_2.png" id="7_sd18g"]
 [ext_resource type="Texture2D" uid="uid://msgkwae3kvgd" path="res://assets/CGS GJ Art/Bones/dark_bone_3.png" id="8_vm7no"]
 [ext_resource type="Script" uid="uid://cnm1rn515ygoe" path="res://levels/darkbone_2.gd" id="8_w200a"]
@@ -19,6 +23,28 @@
 [ext_resource type="AudioStream" uid="uid://bqswsqyouiepa" path="res://assets/music/jumpScare.wav" id="14_5orea"]
 [ext_resource type="Script" uid="uid://dt86akg3a7oc2" path="res://levels/skull.gd" id="16_ndgrd"]
 [ext_resource type="AudioStream" uid="uid://xjykg4jko4ee" path="res://assets/music/dark level bg music.wav" id="18_ndgrd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he6wg"]
+atlas = ExtResource("6_xrja0")
+region = Rect2(0, 0, 110, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqt73"]
+atlas = ExtResource("6_at1ld")
+region = Rect2(0, 0, 90, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00pa0"]
+animations = [{
+"frames": [{
+"duration": 25.0,
+"texture": SubResource("AtlasTexture_he6wg")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_jqt73")
+}],
+"loop": true,
+"name": &"bloodybone",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxcyt"]
 shader = ExtResource("5_at1ld")
@@ -50,8 +76,11 @@ size = Vector2(62, 9.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5orea"]
 size = Vector2(81, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w200a"]
+size = Vector2(77, 56)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ourt"]
-size = Vector2(47.5, 29.75)
+size = Vector2(65.875, 29.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8of7"]
 atlas = ExtResource("11_wcjpl")
@@ -94,13 +123,34 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w200a"]
-size = Vector2(55, 56)
-
 [node name="DarkLevel_Main" type="Node"]
 script = ExtResource("1_k2aru")
 
 [node name="dark_bg" parent="." instance=ExtResource("1_5722l")]
+
+[node name="score" type="Label" parent="dark_bg"]
+texture_filter = 1
+offset_left = 918.0
+offset_top = 36.0
+offset_right = 970.0
+offset_bottom = 88.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_dpc8t")
+text = "0"
+script = ExtResource("4_ngvhw")
+
+[node name="x for bone" type="Sprite2D" parent="dark_bg"]
+texture_filter = 1
+position = Vector2(883, 72)
+scale = Vector2(2.75, 2.32813)
+texture = ExtResource("5_itbe0")
+
+[node name="bloodyBoneScore" type="AnimatedSprite2D" parent="dark_bg"]
+position = Vector2(808, 69)
+sprite_frames = SubResource("SpriteFrames_00pa0")
+animation = &"bloodybone"
+frame_progress = 0.624965
 
 [node name="DarkMap" parent="." instance=ExtResource("2_ilhis")]
 position = Vector2(-1, 65)
@@ -109,6 +159,7 @@ position = Vector2(-1, 65)
 position = Vector2(3194, 67)
 
 [node name="dog" parent="." instance=ExtResource("3_ep78u")]
+position = Vector2(5, 5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(498, 301)
@@ -119,8 +170,10 @@ target = NodePath("../dog")
 
 [node name="ColorRect" type="ColorRect" parent="Shaders"]
 material = SubResource("ShaderMaterial_nxcyt")
-offset_right = 1000.0
-offset_bottom = 604.0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 999.0
+offset_bottom = 602.0
 
 [node name="bone1" type="Area2D" parent="."]
 script = ExtResource("6_0ourt")
@@ -140,11 +193,11 @@ script = ExtResource("8_w200a")
 
 [node name="Sprite2D" type="Sprite2D" parent="bone2"]
 texture_filter = 1
-position = Vector2(6, 0)
+position = Vector2(7, -98)
 texture = ExtResource("7_sd18g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bone2"]
-position = Vector2(5.5, 3)
+position = Vector2(5, -95)
 shape = SubResource("RectangleShape2D_5orea")
 
 [node name="bone3" type="Area2D" parent="."]
@@ -152,11 +205,11 @@ script = ExtResource("6_0ourt")
 
 [node name="Sprite2D" type="Sprite2D" parent="bone3"]
 texture_filter = 1
-position = Vector2(2497, 563)
+position = Vector2(2498, 467)
 texture = ExtResource("6_at1ld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bone3"]
-position = Vector2(2500, 562.75)
+position = Vector2(2499, 467)
 shape = SubResource("RectangleShape2D_wcjpl")
 
 [node name="bone4" type="Area2D" parent="."]
@@ -164,11 +217,11 @@ script = ExtResource("6_0ourt")
 
 [node name="Sprite2D" type="Sprite2D" parent="bone4"]
 texture_filter = 1
-position = Vector2(3106, 564)
+position = Vector2(3107, 467)
 texture = ExtResource("6_at1ld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bone4"]
-position = Vector2(3108, 563)
+position = Vector2(3107, 468)
 shape = SubResource("RectangleShape2D_wcjpl")
 
 [node name="bone5" type="Area2D" parent="."]
@@ -184,27 +237,17 @@ texture = ExtResource("7_sd18g")
 position = Vector2(5.5, 3)
 shape = SubResource("RectangleShape2D_5orea")
 
-[node name="ribs" type="Area2D" parent="."]
-script = ExtResource("9_wcjpl")
+[node name="skull" type="Area2D" parent="."]
+script = ExtResource("16_ndgrd")
 
-[node name="Sprite2D" type="Sprite2D" parent="ribs"]
+[node name="Sprite2D" type="Sprite2D" parent="skull"]
 texture_filter = 1
-position = Vector2(2009, 550)
-texture = ExtResource("8_vm7no")
+position = Vector2(4373, 544)
+texture = ExtResource("9_hbb88")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ribs"]
-position = Vector2(2011, 548.75)
-shape = SubResource("RectangleShape2D_0ourt")
-
-[node name="darkMessages" type="AnimatedSprite2D" parent="ribs"]
-visible = false
-texture_filter = 1
-position = Vector2(1879, 3)
-scale = Vector2(1.48665, 1.45833)
-sprite_frames = SubResource("SpriteFrames_w200a")
-animation = &"stupid_dog"
-frame_progress = 0.434703
-centered = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="skull"]
+position = Vector2(4384.5, 546)
+shape = SubResource("RectangleShape2D_w200a")
 
 [node name="ribs2" type="Area2D" parent="."]
 script = ExtResource("9_wcjpl")
@@ -216,30 +259,40 @@ scale = Vector2(0.859551, 0.771429)
 texture = ExtResource("8_vm7no")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ribs2"]
-position = Vector2(3363, 558)
+position = Vector2(3365.13, 558)
 shape = SubResource("RectangleShape2D_0ourt")
 
 [node name="darkMessages" type="AnimatedSprite2D" parent="ribs2"]
 visible = false
 texture_filter = 1
-position = Vector2(3193, 5)
+position = Vector2(3231, 3)
 scale = Vector2(1.48665, 1.45833)
 sprite_frames = SubResource("SpriteFrames_w200a")
 animation = &"stupid_dog"
 frame_progress = 0.434703
 centered = false
 
-[node name="skull" type="Area2D" parent="."]
-script = ExtResource("16_ndgrd")
+[node name="ribs" type="Area2D" parent="."]
+script = ExtResource("9_wcjpl")
 
-[node name="Sprite2D" type="Sprite2D" parent="skull"]
+[node name="Sprite2D" type="Sprite2D" parent="ribs"]
 texture_filter = 1
-position = Vector2(4373, 544)
-texture = ExtResource("9_hbb88")
+position = Vector2(2009, 550)
+texture = ExtResource("8_vm7no")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="skull"]
-position = Vector2(4373.5, 546)
-shape = SubResource("RectangleShape2D_w200a")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ribs"]
+position = Vector2(2018.06, 548.75)
+shape = SubResource("RectangleShape2D_0ourt")
+
+[node name="darkMessages" type="AnimatedSprite2D" parent="ribs"]
+visible = false
+texture_filter = 1
+position = Vector2(1879, 3)
+scale = Vector2(1.48665, 1.45833)
+sprite_frames = SubResource("SpriteFrames_w200a")
+animation = &"stupid_dog"
+frame_progress = 0.434703
+centered = false
 
 [node name="jumpscareSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_5orea")
@@ -253,6 +306,6 @@ stream = ExtResource("18_ndgrd")
 [connection signal="body_entered" from="bone3" to="bone3" method="_on_body_entered"]
 [connection signal="body_entered" from="bone4" to="bone4" method="_on_body_entered"]
 [connection signal="body_entered" from="bone5" to="bone5" method="_on_body_entered"]
-[connection signal="body_entered" from="ribs" to="ribs" method="_on_body_entered"]
-[connection signal="body_entered" from="ribs2" to="ribs2" method="_on_body_entered"]
 [connection signal="body_entered" from="skull" to="skull" method="_on_body_entered"]
+[connection signal="body_entered" from="ribs2" to="ribs2" method="_on_body_entered"]
+[connection signal="body_entered" from="ribs" to="ribs" method="_on_body_entered"]

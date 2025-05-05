@@ -1,30 +1,66 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpk4154t2lh5c"]
+[gd_scene load_steps=17 format=3 uid="uid://dpk4154t2lh5c"]
 
 [ext_resource type="Script" uid="uid://b73nr1lpbhbs8" path="res://levels/level_1.gd" id="1_08mmt"]
 [ext_resource type="PackedScene" uid="uid://31ofiiv51bh8" path="res://scenes/cute_bg.tscn" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://e7f4dtnbuolu" path="res://scenes/ground.tscn" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://cbbdyqld8tqd1" path="res://scenes/dog.tscn" id="3_gwceb"]
+[ext_resource type="Script" uid="uid://c08gstrbk4gh2" path="res://scenes/score.gd" id="4_aerfg"]
 [ext_resource type="Script" uid="uid://c5humrw1dawa" path="res://scenes/camera_2d.gd" id="4_l53as"]
 [ext_resource type="Script" uid="uid://ds1hk406yelbu" path="res://scenes/next_level.gd" id="5_3sk1a"]
 [ext_resource type="Script" uid="uid://cxd7c45l53yii" path="res://levels/bones.gd" id="6_gwceb"]
+[ext_resource type="Texture2D" uid="uid://diiejfyfh43qi" path="res://assets/CGS GJ Art/Bones/x for bone .png" id="6_nmsli"]
 [ext_resource type="Texture2D" uid="uid://bomo76os67q6n" path="res://assets/CGS GJ Art/Bones/cute_bone_1.png" id="7_l53as"]
 [ext_resource type="Texture2D" uid="uid://dpep50g6bdlx1" path="res://assets/CGS GJ Art/Bones/cute_bone_2.png" id="8_l53as"]
 [ext_resource type="AudioStream" uid="uid://c5tuser6y4epq" path="res://assets/music/cute level bg music - Made with Clipchamp.wav" id="10_5ot28"]
+[ext_resource type="FontFile" uid="uid://dw7esx3n6k17b" path="res://assets/CGS GJ Art/GUI/m6x11.ttf" id="11_5ot28"]
+[ext_resource type="AudioStream" uid="uid://b313gs08lty84" path="res://assets/music/Untitled video - Made with Clipchamp (1).wav" id="14_betor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ygg"]
-size = Vector2(1871, 65)
+size = Vector2(1769, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sk1a"]
-size = Vector2(82, 13.5)
+size = Vector2(82, 12)
 
 [node name="CuteLevel_Main" type="Node"]
 script = ExtResource("1_08mmt")
 
-[node name="CuteBG" parent="." instance=ExtResource("1_n46q3")]
+[node name="CuteBG2" parent="." instance=ExtResource("1_n46q3")]
+
+[node name="Score" type="Label" parent="CuteBG2"]
+texture_filter = 1
+offset_left = 948.0
+offset_top = 17.0
+offset_right = 956.0
+offset_bottom = 31.0
+scale = Vector2(5, 5)
+theme_override_fonts/font = ExtResource("11_5ot28")
+text = "0"
+script = ExtResource("4_aerfg")
+
+[node name="scoreBone" type="Sprite2D" parent="CuteBG2"]
+texture_filter = 1
+position = Vector2(849, 47)
+rotation = -0.69115
+scale = Vector2(0.918182, 0.957627)
+texture = ExtResource("7_l53as")
+
+[node name="scoreBone2" type="Sprite2D" parent="CuteBG2"]
+texture_filter = 1
+position = Vector2(847, 48)
+rotation = 0.680678
+scale = Vector2(0.918182, 0.957627)
+texture = ExtResource("7_l53as")
+
+[node name="x for bone" type="Sprite2D" parent="CuteBG2"]
+texture_filter = 1
+position = Vector2(917, 49)
+scale = Vector2(2.75, 2.32813)
+texture = ExtResource("6_nmsli")
 
 [node name="ground" parent="." instance=ExtResource("2_btoec")]
 
 [node name="dog" parent="." instance=ExtResource("3_gwceb")]
+position = Vector2(15, 70)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(499, 299)
@@ -35,7 +71,7 @@ target = NodePath("../dog")
 script = ExtResource("5_3sk1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Level"]
-position = Vector2(3117.5, 882)
+position = Vector2(3168.5, 882)
 shape = SubResource("RectangleShape2D_y5ygg")
 
 [node name="bone1" type="Area2D" parent="."]
@@ -56,12 +92,12 @@ script = ExtResource("6_gwceb")
 
 [node name="Sprite2D" type="Sprite2D" parent="bone2"]
 texture_filter = 1
-position = Vector2(777, 506)
+position = Vector2(780, 406)
 scale = Vector2(1.2, 1.17627)
 texture = ExtResource("7_l53as")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bone2"]
-position = Vector2(779, 506)
+position = Vector2(780, 403)
 shape = SubResource("RectangleShape2D_3sk1a")
 
 [node name="bone3" type="Area2D" parent="."]
@@ -69,13 +105,13 @@ script = ExtResource("6_gwceb")
 
 [node name="Sprite2D" type="Sprite2D" parent="bone3"]
 texture_filter = 1
-position = Vector2(1287, 507)
+position = Vector2(1282, 401)
 scale = Vector2(1.2, 1.17627)
 texture = ExtResource("8_l53as")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bone3"]
 texture_filter = 1
-position = Vector2(1285, 504.313)
+position = Vector2(1280, 398)
 shape = SubResource("RectangleShape2D_3sk1a")
 
 [node name="bone4" type="Area2D" parent="."]
@@ -96,13 +132,13 @@ script = ExtResource("6_gwceb")
 
 [node name="Sprite2D" type="Sprite2D" parent="bone5"]
 texture_filter = 1
-position = Vector2(2287, 505)
+position = Vector2(2299, 410)
 scale = Vector2(1.2, 1.17627)
 texture = ExtResource("8_l53as")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bone5"]
 texture_filter = 1
-position = Vector2(2285, 502.5)
+position = Vector2(2295, 407)
 shape = SubResource("RectangleShape2D_3sk1a")
 
 [node name="bait bone" type="Sprite2D" parent="."]
@@ -114,6 +150,10 @@ texture = ExtResource("7_l53as")
 [node name="cuteBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5ot28")
 volume_db = -15.011
+
+[node name="boneCollect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_betor")
+volume_db = -16.082
 
 [connection signal="body_entered" from="Next_Level" to="Next_Level" method="_on_body_entered"]
 [connection signal="body_entered" from="bone1" to="bone1" method="_on_body_entered"]

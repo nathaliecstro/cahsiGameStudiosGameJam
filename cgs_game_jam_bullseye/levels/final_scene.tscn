@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b5g2n0lte1aoj"]
+[gd_scene load_steps=14 format=4 uid="uid://b5g2n0lte1aoj"]
 
 [ext_resource type="Texture2D" uid="uid://dc76121l8q0ki" path="res://assets/CGS GJ Art/room tileset/Dark City 16x16 Tileset/tileset_modern_rpg_background.png" id="1_ck6bu"]
 [ext_resource type="Script" uid="uid://bkco3d3wdpmb3" path="res://levels/final_scene.gd" id="1_mvnq6"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c5ooyywtnx3up" path="res://assets/CGS GJ Art/sprites/Death.png" id="3_a5dod"]
 [ext_resource type="Texture2D" uid="uid://lnymkr5ji4gj" path="res://assets/CGS GJ Art/sprites/dead owner sprites.png" id="4_0arsp"]
 [ext_resource type="AudioStream" uid="uid://cq0bq53qmnud2" path="res://assets/music/IMG_8649.wav" id="6_6tf4b"]
+[ext_resource type="Texture2D" uid="uid://df4m7f6qllyt8" path="res://assets/CGS GJ Art/sprites/calendar12.png" id="7_6tf4b"]
+[ext_resource type="FontFile" uid="uid://dw7esx3n6k17b" path="res://assets/CGS GJ Art/GUI/m6x11.ttf" id="8_dsaq8"]
+[ext_resource type="Script" uid="uid://cuctuo7vx1qrn" path="res://levels/days.gd" id="9_0wl40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iroug"]
 texture = ExtResource("1_ck6bu")
@@ -509,3 +512,20 @@ texture = ExtResource("4_0arsp")
 [node name="dog&Rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_6tf4b")
 volume_db = -10.722
+
+[node name="calendar" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(388, 179)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_6tf4b")
+
+[node name="days" type="Label" parent="."]
+texture_filter = 1
+offset_left = 377.0
+offset_top = 174.0
+offset_right = 386.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_dsaq8")
+text = "0"
+script = ExtResource("9_0wl40")
